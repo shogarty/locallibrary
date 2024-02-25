@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Name: {{ author.first_name}} {{author.first_name}}</h1>
+
+  <p><strong>Date of Birth:</strong> {{ author.date_of_birth }}</p>
+  <p><strong>Date of Death:</strong> {{ author.date_of_death }}</p>
+
+    {% for work in author.book_set.all %}
+      <hr />
+      <p><a href="{{ work.get_absolute_url }}"> {{ work.title }}</p>
+      <p class="text-muted"><strong>Summary:</strong> {{ work.summary }}</p>
+    {% endfor %}
+  </div>
+{% endblock %}
